@@ -1,0 +1,25 @@
+.poke__container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+hr {
+    width: 100%;
+    border: 1px solid #eee;
+}
+
+.poke__info {
+    text-align: center;
+}
+
+.poke__image {
+    display: flex !important;
+    align-items: center;
+}
+
+.poke__image__buttons {
+    display: flex;
+    flex-direction: column;
+}

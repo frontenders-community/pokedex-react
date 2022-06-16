@@ -1,0 +1,23 @@
+.pokedex {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.pokedex__items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokedex__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 25%;
+}
+
+.remove-btn {
+    font-size: .8rem;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    padding: 0 1.5rem;
+}
