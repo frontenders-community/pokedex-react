@@ -10,7 +10,7 @@ export default function Pokedex({ pokedex, removeHandler }) {
             <div className="pokedex__item" key={pokemon.name}>
               <h3>{pokemon.name}</h3>
               <img src={pokemon.sprites.front_default}></img>
-              <button class="remove-btn button button-outline" onClick={() => removeHandler(pokemon.name)}>Elimina</button>
+              <button className="remove-btn button button-outline" onClick={() => removeHandler(pokemon.name)}>Elimina</button>
             </div>
           )
         })}

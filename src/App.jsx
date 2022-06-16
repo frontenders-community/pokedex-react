@@ -56,7 +56,7 @@ function App() {
     <div className="poke__app container">
       <SearchForm search={searchPokemon}/>
       {pokemon && <PokemonDetails pokemon={pokemon} />}
-      {pokemon && <button class="add-btn button" onClick={addToPokedex}>Aggiungilo al pokedex</button>}
+      {pokemon && <button className="add-btn button" onClick={addToPokedex}>Aggiungilo al pokedex</button>}
       <Pokedex pokedex={pokedex} removeHandler={deleteFromPokedex}/>
     </div>
   )
