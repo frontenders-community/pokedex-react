@@ -25,7 +25,7 @@ export default function PokemonDetails({ pokemon }) {
       <hr />
       <div className="row">
         <div className="poke__image column">
-          <img width="300" height="300" src={pokemonImg}/>
+          <img src={pokemonImg}/>
           <div className="poke__image__buttons">
             <button className="button button-outline" onClick={() => setPokemonImg(pokemon.sprites.front_default)}>Default</button>
             <button className="button button-outline" onClick={() => setPokemonImg(pokemon.sprites.front_shiny)}>Shiny</button>

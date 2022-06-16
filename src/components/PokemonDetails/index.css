@@ -19,6 +19,10 @@ hr {
     align-items: center;
 }
 
+.poke__image > img {
+    width: 100%;
+}
+
 .poke__image__buttons {
     display: flex;
     flex-direction: column;
