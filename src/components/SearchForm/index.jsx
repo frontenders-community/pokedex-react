@@ -7,17 +7,22 @@ export default function SearchForm({search}) {
     setSearchInput(event.target.value)
   }
 
-  function handelKeyDown(event){
+  function handleKeyDown(event){
     if (event.key === "Enter"){
-      search(searchInput)
+      handleSearch();
     }
+  }
+
+  function handleSearch() {
+    search(searchInput);
+    setSearchInput("");
   }
 
   return (
     <div>
       <h1>Cerca un pokemon</h1>      
-      <input type="search" placeholder="e.g. bulbasaur" value={searchInput} onChange={handleChange} onKeyDown={handelKeyDown}></input>
-      <button className="button" onClick={() => search(searchInput)}>Cerca</button>
+      <input type="search" placeholder="e.g. bulbasaur" value={searchInput} onChange={handleChange} onKeyDown={handleKeyDown}></input>
+      <button className="button" onClick={handleSearch}>Cerca</button>
     </div>
   )
 }
