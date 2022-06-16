@@ -28,7 +28,7 @@ function App() {
     if(localStorage.getItem('pokedex')) {
       setPokedex(JSON.parse(localStorage.getItem('pokedex')))
     }
-    searchPokemon('ditto');
+    searchPokemon('charmander');
   }, [])
   
   async function searchPokemon (pokemonName){
