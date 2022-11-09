@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
-import './index.css';
 
-export default function PokemonDetails({ pokemon }) {
+export default function PokemonDetail({ pokemon, addHandler }) {
   const [pokemonImg, setPokemonImg] = useState(null);
 
   useEffect(() => {
@@ -45,6 +44,7 @@ export default function PokemonDetails({ pokemon }) {
           }
         </div>
       </div>
+      <button className="add-btn" onClick={addHandler}>Aggiungilo al pokedex</button>
     </div>
   )
 }

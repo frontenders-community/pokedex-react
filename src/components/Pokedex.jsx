@@ -1,5 +1,3 @@
-import './index.css'
-
 export default function Pokedex({ pokedex, setPokemon, removeHandler }) {
   return (
     <div className="pokedex">

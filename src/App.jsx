@@ -1,24 +1,9 @@
-  /* 
-  OBBIETTIVO: Attraverso un input e un pulsante submit ottenere il pokemon cercato (immagine a sinistra, stats a destra)
-
-  Componenti: 
-  - Pokemon details
-    - Deve stampare l'immagine (sprites -fron default) e stats(altezza e peso, nome, statistiche(nome e base stat), nomi abilità)
-  - Search bar
-    - Input
-    - Search button
-
-  Cosa fare:
-  - Costruire input e submit button
-  - 
-  */
-
-import { useState, useEffect } from 'react'
 import './App.css'
-import SearchForm from './components/SearchForm'
-import PokemonDetails from './components/PokemonDetails'
-import Pokedex from './components/Pokedex';
+import { useState, useEffect } from 'react'
 import { getPokemon } from './utils/api';
+import SearchBar from './components/SearchBar';
+import PokemonDetail from './components/PokemonDetail';
+import Pokedex from './components/Pokedex';
 
 function App() {
   const [pokemon, setPokemon] = useState(null)
@@ -31,7 +16,7 @@ function App() {
     searchPokemon('charmander');
   }, [])
   
-  async function searchPokemon (pokemonName){
+  async function searchPokemon(pokemonName){
     const pokemonResult = await getPokemon(pokemonName);
     setPokemon(pokemonResult);
   } 
@@ -39,7 +24,7 @@ function App() {
   function addToPokedex(){
     const result = pokedex.find(item => item.name === pokemon.name);
     if (result === undefined) {
-      localStorage.setItem('pokedex' , JSON.stringify([...pokedex, pokemon]))
+      localStorage.setItem('pokedex', JSON.stringify([...pokedex, pokemon]))
       setPokedex([...pokedex, pokemon]);
     } else {
       alert('Pokemon già presente')
@@ -54,9 +39,8 @@ function App() {
 
   return (
     <div className="poke__app container">
-      <SearchForm search={searchPokemon}/>
-      {pokemon && <PokemonDetails pokemon={pokemon} />}
-      {pokemon && <button className="add-btn" onClick={addToPokedex}>Aggiungilo al pokedex</button>}
+      <SearchBar search={searchPokemon}/>
+      {pokemon && <PokemonDetail pokemon={pokemon} addHandler={addToPokedex} />}
       <Pokedex pokedex={pokedex} setPokemon={setPokemon} removeHandler={deleteFromPokedex}/>
     </div>
   )
