@@ -6,8 +6,9 @@ import PokemonDetail from './components/PokemonDetail';
 import Pokedex from './components/Pokedex';
 
 function App() {
-  const [pokemon, setPokemon] = useState(null)
+  const [pokemon, setPokemon] = useState(null);
   const [pokedex, setPokedex] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if(localStorage.getItem('pokedex')) {
@@ -15,16 +16,24 @@ function App() {
     }
     searchPokemon('charmander');
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('pokedex', JSON.stringify(pokedex));
+  }, [pokedex])
   
   async function searchPokemon(pokemonName){
     const pokemonResult = await getPokemon(pokemonName);
-    setPokemon(pokemonResult);
+    if (!pokemonResult.hasOwnProperty('error')) {
+      setPokemon(pokemonResult);
+      setErrorMessage("");
+    } else {
+      setErrorMessage(pokemonResult.msg);
+    }
   } 
 
   function addToPokedex(){
     const result = pokedex.find(item => item.name === pokemon.name);
     if (result === undefined) {
-      localStorage.setItem('pokedex', JSON.stringify([...pokedex, pokemon]))
       setPokedex([...pokedex, pokemon]);
     } else {
       alert('Pokemon già presente')
@@ -34,12 +43,11 @@ function App() {
   function deleteFromPokedex(name){
     const newPokedex = pokedex.filter(item => item.name !== name);
     setPokedex(newPokedex);
-    localStorage.setItem('pokedex', JSON.stringify(newPokedex));
   }
 
   return (
     <div className="poke__app container">
-      <SearchBar search={searchPokemon}/>
+      <SearchBar search={searchPokemon} errorMessage={errorMessage} />
       {pokemon && <PokemonDetail pokemon={pokemon} addHandler={addToPokedex} />}
       <Pokedex pokedex={pokedex} setPokemon={setPokemon} removeHandler={deleteFromPokedex}/>
     </div>
