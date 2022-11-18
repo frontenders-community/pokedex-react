@@ -1,5 +1,5 @@
 # Frontenders Community
-## Challenge #1
+## Challenge #1 - Pokedex (React version)
 
 Lo scopo della challenge è quello di ricreare il layout fornito in allegato.
 
