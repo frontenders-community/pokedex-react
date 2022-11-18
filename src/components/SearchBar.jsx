@@ -23,7 +23,13 @@ export default function SearchBar({ search, errorMessage }) {
   return (
     <div>
       <h1>Cerca un pokemon</h1>      
-      <input type="search" placeholder="e.g. bulbasaur" value={searchInput} onChange={handleChange} onKeyDown={handleKeyDown}></input>
+      <input
+        type="search"
+        placeholder="e.g. bulbasaur"
+        value={searchInput}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      ></input>
       { errorMessage && <p>{errorMessage}</p> }
       <button className="button" onClick={handleSearch}>Cerca</button>
     </div>
