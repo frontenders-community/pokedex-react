@@ -15,3 +15,6 @@ E' possibile aggiungere dei pokemon al proprio pokedex, per un massimo di 10 pok
 
 #### Tecnologie
 La web app va sviluppata in plain JS o React. Per lo stile della web app va utilizzata la libreria Milligram CSS (https://milligram.io/#getting-started)
+
+#### Layout
+![Screenshot](screenshot.png)
