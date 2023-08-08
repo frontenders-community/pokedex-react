@@ -1,7 +1,7 @@
------
-name: Pokedex
-level: Beginner
------
+<!--
+name:Pokedex
+level:Beginner
+-->
 # Frontenders Community
 ## Challenge #1 - Pokedex (React version)
 
