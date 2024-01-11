@@ -11,15 +11,8 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    if(localStorage.getItem('pokedex')) {
-      setPokedex(JSON.parse(localStorage.getItem('pokedex')))
-    }
     searchPokemon('charmander');
   }, [])
-
-  useEffect(() => {
-    localStorage.setItem('pokedex', JSON.stringify(pokedex));
-  }, [pokedex])
   
   async function searchPokemon(pokemonName){
     const pokemonResult = await getPokemon(pokemonName);
@@ -47,9 +40,19 @@ function App() {
 
   return (
     <div className="poke__app container">
-      <SearchBar search={searchPokemon} errorMessage={errorMessage} />
-      {pokemon && <PokemonDetail pokemon={pokemon} addHandler={addToPokedex} />}
-      <Pokedex pokedex={pokedex} setPokemon={setPokemon} removeHandler={deleteFromPokedex}/>
+      <SearchBar
+        search={searchPokemon}
+        errorMessage={errorMessage}
+      />
+      {pokemon && <PokemonDetail
+        pokemon={pokemon}
+        addHandler={addToPokedex}
+      />}
+      <Pokedex
+        pokedex={pokedex}
+        setPokemon={setPokemon}
+        removeHandler={deleteFromPokedex}
+      />
     </div>
   )
 }
